@@ -1,0 +1,193 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.frame {
+  background-color: #f9f9f9;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.todo-item .checkbox-label {
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.todo-item .checkbox-label .checkbox-custom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.todo-item .checkbox-label:hover {
+  border-color: #777;
+}
+
+.todo-item .checkbox-label:hover .checkbox-custom {
+  background-color: #777;
+}
+
+.todo-item .checkbox-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #777;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.todo-item input[type="checkbox"]:checked+.checkbox-label .checkbox-custom {
+  background-color: #777;
+  border-color: #777;
+}
+
+.todo-item input[type="checkbox"]:checked+.checkbox-label::after {
+  opacity: 1;
+}
+
+.todo-item input[type="checkbox"] {
+  display: none;
+}
+
+.todo-item label {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item span {
+  flex-grow: 1;
+  transition: color 0.5s;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+.todo-item input[type="checkbox"]+label span::before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free Solid";
+  font-weight: 900;
+  font-size: 16px;
+  color: #888;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+
+.todo-item input[type="checkbox"]:checked+label span::before {
+  transform: scale(1);
+  opacity: 0.4;
+}
+
+.todo-item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #888;
+  transition: color 0.3s;
+}
+
+.todo-item button:hover {
+  color: #f44336;
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.todo-item.completed span {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+.todo-item.completed .checkbox-label .checkbox-custom::after {
+  opacity: 1;
+}
+
+.todo-item.completed .checkbox-label {
+  border-color: #777;
+}
+
+.todo-item.completed .checkbox-label .checkbox-custom {
+  background-color: #777;
+}
+
+.background-select {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+.background-select select {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  background-color: #f9f9f9;
+}
+
+.add-task-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 600px) {
+  .frame {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .frame {
+    max-width: 80%;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .frame {
+    max-width: 60%;
+  }
+}
